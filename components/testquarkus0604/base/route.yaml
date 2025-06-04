@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: testquarkus0604
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: testquarkus0604 
+  name: testquarkus0604
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: testquarkus0604
+    weight: 100 

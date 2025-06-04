@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: testquarkus0604-gitops
+  description: This is GitOps manifest for testquarkus0604   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=testquarkus0604
+    backstage.io/kubernetes-id: testquarkus0604 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: testquarkus0604
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:testquarkus0604
